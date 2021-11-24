@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Switch } from 'react-router-dom';
+import HomePage from './pages/home/Home';
+import FirstStepPage from './pages/onboard-wizard/FirstStep';
+import SecondStepPage from './pages/onboard-wizard/SecondStep';
+import ThirdStepPage from './pages/onboard-wizard/ThirdStep';
+import Layout from './components/layout/Layout';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <Switch>
+        <Route path='/' exact>
+          <HomePage></HomePage>
+        </Route>
+        <Route path='/onboard/1' exact>
+          <FirstStepPage></FirstStepPage>
+        </Route>
+        <Route path='/onboard/2'>
+        <SecondStepPage></SecondStepPage>
+        </Route>
+        <Route path='/onboard/3'>
+          <ThirdStepPage></ThirdStepPage>
+        </Route>
+      </Switch>
+    </Layout>
   );
 }
 
